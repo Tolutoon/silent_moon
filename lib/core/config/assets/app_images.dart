@@ -1,0 +1,7 @@
+class Appimages {
+  static const String basePath = "assets/images/";
+  static const String format = ".png";
+
+  static const String onboardingBg = "${basePath}onboardingBg$format";
+  static const String silentMoonLogo = "${basePath}silentMoonLogo$format";
+}
