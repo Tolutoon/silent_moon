@@ -15,6 +15,10 @@ class SignUpScreen extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        toolbarHeight: 6,
+      ),
       body: Stack(
         children: [
           //background image
@@ -22,6 +26,7 @@ class SignUpScreen extends StatelessWidget {
             Appimages.onboardingBg,
             width: width,
             height: height,
+            fit: BoxFit.cover,
           ),
           //content overlay
           SingleChildScrollView(
