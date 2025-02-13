@@ -14,3 +14,4 @@ export 'package:silent_moon/common/widgets/button/socialButton/social_button.dar
 export 'package:silent_moon/common/widgets/input/basicInput/basicInput.dart';
 export 'package:silent_moon/presentation/auth/signup.dart';
 export 'package:silent_moon/presentation/auth/sigin_signup.dart';
+export 'package:supabase_flutter/supabase_flutter.dart';

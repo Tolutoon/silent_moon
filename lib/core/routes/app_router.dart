@@ -7,8 +7,14 @@ final GoRouter appRouter = GoRouter(routes: <RouteBase>[
           const SignInSignUpScreen()),
   GoRoute(
       path: '/signup',
-      builder: (BuildContext context, GoRouterState state) => SignUpPage()),
+      builder: (BuildContext context, GoRouterState state) =>
+          const SignUpPage()),
   GoRoute(
       path: '/signin',
-      builder: (BuildContext context, GoRouterState state) => SignInPage())
+      builder: (BuildContext context, GoRouterState state) =>
+          const SignInPage()),
+  GoRoute(
+      path: '/signin',
+      builder: (BuildContext context, GoRouterState state) =>
+          const SignInPage()),
 ]);
