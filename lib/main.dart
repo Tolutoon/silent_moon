@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:silent_moon/core/theme/app_theme.dart';
-import 'package:silent_moon/presentation/auth/signup.dart';
+import 'package:silent_moon/presentation/auth/sigin_signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: const SignUpScreen(),
+      home: const SignInSignUpScreen(),
     );
   }
 }

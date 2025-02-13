@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:silent_moon/common/button/basicButton/basic_button.dart';
+import 'package:silent_moon/common/widgets/button/basicButton/basic_button.dart';
 import 'package:silent_moon/core/config/assets/app_images.dart';
 import 'package:silent_moon/core/config/assets/app_vectors.dart';
 import 'package:silent_moon/core/theme/app_colors.dart';
 import 'package:silent_moon/presentation/auth/signin.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignInSignUpScreen extends StatelessWidget {
+  const SignInSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
