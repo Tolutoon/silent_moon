@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:silent_moon/core/routes/app_router.dart';
-import 'package:silent_moon/core/theme/app_theme.dart';
+import 'package:silent_moon/import.dart';
 
 void main() {
   runApp(const MyApp());

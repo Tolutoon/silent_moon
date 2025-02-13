@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:silent_moon/common/widgets/appbar/appbar.dart';
-import 'package:silent_moon/common/widgets/button/basicButton/basic_button.dart';
-import 'package:silent_moon/common/widgets/button/socialButton/social_button.dart';
-import 'package:silent_moon/common/widgets/input/basicInput/basicInput.dart';
-import 'package:silent_moon/core/config/assets/app_images.dart';
-import 'package:silent_moon/core/theme/app_colors.dart';
+import 'package:silent_moon/import.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -126,7 +119,9 @@ class SignInPage extends StatelessWidget {
                                 width: 6,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  context.go('/signup');
+                                },
                                 child: const Text(
                                   'SIGN UP',
                                   style: TextStyle(color: AppColors.primary),

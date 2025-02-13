@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
-import 'package:silent_moon/common/widgets/button/basicButton/basic_button.dart';
-import 'package:silent_moon/core/config/assets/app_images.dart';
-import 'package:silent_moon/core/config/assets/app_vectors.dart';
-import 'package:silent_moon/core/theme/app_colors.dart';
-import 'package:silent_moon/presentation/auth/signin.dart';
+import 'package:silent_moon/import.dart';
 
 class SignInSignUpScreen extends StatelessWidget {
   const SignInSignUpScreen({super.key});
@@ -93,10 +86,7 @@ class SignInSignUpScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignInPage()));
+                        context.go('/signin');
                       },
                       child: const Text(
                         'LOG IN',
