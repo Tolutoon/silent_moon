@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  const BasicAppBar({super.key, this.title});
+  final String? route;
+  const BasicAppBar({super.key, this.title, this.route});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           leading: IconButton(
             onPressed: () {
-              context.pop();
+              context.go(route!);
             },
             icon: const Icon(
               Icons.arrow_back_ios,

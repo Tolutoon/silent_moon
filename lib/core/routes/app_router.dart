@@ -1,6 +1,6 @@
 import 'package:silent_moon/import.dart';
 
-final GoRouter appRouter = GoRouter(routes: <RouteBase>[
+final GoRouter appRouter = GoRouter(initialLocation: '/', routes: <RouteBase>[
   GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) =>
