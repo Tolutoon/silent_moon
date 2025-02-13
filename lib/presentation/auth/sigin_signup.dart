@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:silent_moon/common/widgets/button/basicButton/basic_button.dart';
 import 'package:silent_moon/core/config/assets/app_images.dart';
 import 'package:silent_moon/core/config/assets/app_vectors.dart';
@@ -72,7 +73,11 @@ class SignInSignUpScreen extends StatelessWidget {
                 const SizedBox(
                   height: 62,
                 ),
-                BasicAppButton(onPressed: () {}, title: 'Sign up'),
+                BasicAppButton(
+                    onPressed: () {
+                      context.go('/signup');
+                    },
+                    title: 'Sign up'),
                 const SizedBox(
                   height: 16,
                 ),
@@ -80,7 +85,7 @@ class SignInSignUpScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Already have an account',
+                      'ALREADY HAVE AN ACCOUNT',
                       style: TextStyle(color: AppColors.lightGrey),
                     ),
                     const SizedBox(
@@ -94,7 +99,7 @@ class SignInSignUpScreen extends StatelessWidget {
                                 builder: (context) => SignInPage()));
                       },
                       child: const Text(
-                        'Log in',
+                        'LOG IN',
                         style: TextStyle(color: AppColors.primary),
                       ),
                     )

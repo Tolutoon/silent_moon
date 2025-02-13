@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:silent_moon/core/routes/app_router.dart';
 import 'package:silent_moon/core/theme/app_theme.dart';
-import 'package:silent_moon/presentation/auth/sigin_signup.dart';
-import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-final GoRouter _router = GoRouter(routes: <RouteBase>[
-  GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) =>
-          SignInSignUpScreen())
-]);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,10 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
-      home: const SignInSignUpScreen(),
+      routerConfig: appRouter,
     );
   }
 }
