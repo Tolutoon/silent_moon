@@ -48,7 +48,10 @@ class SocialButton extends StatelessWidget {
               ),
               Text(
                 text.toUpperCase(),
-                style: TextStyle(color: textColor, fontWeight: FontWeight.w300),
+                style: TextStyle(
+                    color: textColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14),
               )
             ],
           )),

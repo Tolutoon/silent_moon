@@ -18,7 +18,7 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true, // Makes AppBar overlay background
       backgroundColor: AppColors.backgroundColor, // Keeps scaffold background
-      appBar: BasicAppBar(),
+      appBar: const BasicAppBar(),
       body: Stack(
         children: [
           // Background Image positioned higher
@@ -88,13 +88,13 @@ class SignInPage extends StatelessWidget {
                           SizedBox(
                             height: height * 0.05,
                           ),
-                          BasicInputField(
+                          const BasicInputField(
                             hintText: 'Email Address',
                           ),
                           SizedBox(
                             height: height * 0.025,
                           ),
-                          BasicInputField(
+                          const BasicInputField(
                             hintText: 'Password',
                           ),
                           SizedBox(
@@ -115,19 +115,22 @@ class SignInPage extends StatelessWidget {
                           SizedBox(
                             height: height * 0.1,
                           ),
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              const Text(
                                 'ALREADY HAVE AN ACCOUNT?',
                                 style: TextStyle(color: AppColors.lightGrey),
                               ),
                               const SizedBox(
                                 width: 6,
                               ),
-                              Text(
-                                'SIGN UP',
-                                style: TextStyle(color: AppColors.primary),
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Text(
+                                  'SIGN UP',
+                                  style: TextStyle(color: AppColors.primary),
+                                ),
                               )
                             ],
                           )
