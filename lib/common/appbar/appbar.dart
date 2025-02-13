@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -6,21 +7,45 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 15,
-          )),
+    return Column(
+      children: [
+        // Small white portion at the top
+        Container(
+          height: 4, // Adjust this height as needed
+          color: Colors.white,
+        ),
+        // Actual AppBar
+        AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
+            statusBarColor: Colors.white, // Ensures status bar blends in
+            statusBarIconBrightness: Brightness.dark, // Icons remain visible
+          ),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: Colors.black, // Ensures visibility
+            ),
+          ),
+          title: title != null
+              ? Text(
+                  title!,
+                  style: const TextStyle(
+                    color: Colors.black, // Ensures visibility on white
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : null,
+        ),
+      ],
     );
   }
 
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 20);
 }

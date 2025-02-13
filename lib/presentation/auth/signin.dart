@@ -28,19 +28,21 @@ class SignInPage extends StatelessWidget {
           ),
 
           // Main content
-          Column(
+          const Column(
             children: [
-              const SizedBox(height: kToolbarHeight + 40), // Space for AppBar
+              SizedBox(height: kToolbarHeight + 40), // Space for AppBar
               Expanded(
-                child: Center(
-                  child: Text(
-                    "Welcome Back!",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                child: Column(
+                  children: [
+                    Text(
+                      "Welcome Back!",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.darkBlue,
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
