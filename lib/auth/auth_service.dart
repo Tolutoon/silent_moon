@@ -14,4 +14,9 @@ class AuthService {
       String email, String password) async {
     return await _supabase.auth.signUp(password: password, email: email);
   }
+
+  //sign out
+  Future<void> signOut() async {
+    return await _supabase.auth.signOut();
+  }
 }
