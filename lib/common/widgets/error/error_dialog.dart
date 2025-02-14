@@ -12,7 +12,7 @@ class ErrorDialog extends StatelessWidget {
       actions: [
         TextButton(
             onPressed: () {
-              print('mee');
+      
               context.go('/');
             },
             child: Text('ok'))

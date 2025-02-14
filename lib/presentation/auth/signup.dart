@@ -1,4 +1,3 @@
-import 'package:silent_moon/auth/auth_service.dart';
 import 'package:silent_moon/common/widgets/error/error_dialog.dart';
 import 'package:silent_moon/common/widgets/success/success_dialog.dart';
 import 'package:silent_moon/import.dart';

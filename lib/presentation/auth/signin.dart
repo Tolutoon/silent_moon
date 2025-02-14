@@ -1,13 +1,49 @@
+import 'package:silent_moon/common/widgets/error/error_dialog.dart';
 import 'package:silent_moon/import.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
+
+  @override
+  State<SignInPage> createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  TextEditingController emailAdressController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    emailAdressController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailAdressController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    TextEditingController emailAdressController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+
+    final authService = AuthService();
+
+    Future<void> login() async {
+      final email = emailAdressController.text;
+      final password = passwordController.text;
+      try {
+        await authService.signInWithEmailAndPassword(email, password);
+        context.go('/home');
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => ErrorDialog(errorMessage: e.toString()));
+      }
+    }
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -97,7 +133,7 @@ class SignInPage extends StatelessWidget {
                             height: height * 0.05,
                           ),
                           BasicAppButton(
-                            onPressed: () {},
+                            onPressed: () => login(),
                             title: 'Log In',
                             height: 70,
                           ),
