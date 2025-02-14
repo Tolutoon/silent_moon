@@ -1,48 +1,146 @@
-import 'package:flutter/material.dart';
-import 'package:silent_moon/common/widgets/appbar/appbar.dart';
-import 'package:silent_moon/core/config/assets/app_images.dart';
+import 'package:silent_moon/auth/auth_service.dart';
 import 'package:silent_moon/import.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailAdressController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    emailAdressController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dipose() {
+    emailAdressController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
+    final authService = AuthService();
+
+    void signup() async {
+      final email = emailAdressController.text;
+      final password = passwordController.text;
+
+      print('$email, $password');
+      try {
+        await authService.signUpWithEmailAndPassword(email, password);
+      } catch (e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+      }
+    }
+
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: const BasicAppBar(
         route: '/',
       ),
       body: Stack(
         children: [
           Positioned(
+              top: -30,
+              left: 0,
+              right: 0,
               child: Image.asset(
-            Appimages.backImg,
-            width: double.infinity,
-            fit: BoxFit.cover,
-            height: height * 0.4,
-          )),
-
-          //main content
-          const Column(
+                Appimages.backImg,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                height: height * 0.4,
+              )),
+          Column(
             children: [
-              SizedBox(
-                height: kToolbarHeight + 40,
-              ),
               Expanded(
                   child: Center(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Create your account",
-                          style: TextStyle(
-                              fontSize: 32, color: AppColors.darkBlue),
-                        ),
-                      ],
+                    child: Form(
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Create your account",
+                            style: TextStyle(
+                                fontSize: 32,
+                                color: AppColors.darkBlue,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: height * 0.04,
+                          ),
+                          SocialButton(
+                            onPressed: () {},
+                            icon: Icons.facebook,
+                            color: Colors.white,
+                            textColor: Colors.white,
+                            backgroundColor: AppColors.secondary,
+                            text: 'Continue with Facebook',
+                          ),
+                          SizedBox(
+                            height: height * 0.025,
+                          ),
+                          SocialButton(
+                            hasOutline: true,
+                            onPressed: () {},
+                            icon: FontAwesomeIcons.google,
+                            textColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            text: 'Continue with Google',
+                          ),
+                          SizedBox(
+                            height: height * 0.05,
+                          ),
+                          const Text(
+                            'OR LOG IN WITH YOUR EMAIL',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: height * 0.05,
+                          ),
+                          BasicInputField(
+                            hintText: 'Username',
+                            controller: usernameController,
+                          ),
+                          SizedBox(
+                            height: height * 0.025,
+                          ),
+                          BasicInputField(
+                            hintText: 'Email Address',
+                            controller: emailAdressController,
+                          ),
+                          SizedBox(
+                            height: height * 0.025,
+                          ),
+                          BasicInputField(
+                            hintText: 'Password',
+                            controller: passwordController,
+                          ),
+                          SizedBox(
+                            height: height * 0.05,
+                          ),
+                          BasicAppButton(
+                            onPressed: () => signup(),
+                            title: 'get started',
+                            height: 70,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

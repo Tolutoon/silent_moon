@@ -6,33 +6,33 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    // final width = MediaQuery.of(context).size.width;
+    TextEditingController emailAdressController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
-      extendBodyBehindAppBar: true, // Makes AppBar overlay background
-      backgroundColor: AppColors.backgroundColor, // Keeps scaffold background
+      extendBodyBehindAppBar: true,
+      backgroundColor: AppColors.backgroundColor,
       appBar: const BasicAppBar(
         route: '/',
       ),
       body: Stack(
         children: [
-          // Background Image positioned higher
           Positioned(
-            top: -50, // Move the image upwards
+            top: -50,
             left: 0,
             right: 0,
             child: Image.asset(
               Appimages.backImg,
               width: double.infinity,
               fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.height * 0.4, // Adjust height
+              height: MediaQuery.of(context).size.height * 0.4,
             ),
           ),
 
           // Main content
           Column(
             children: [
-              const SizedBox(height: kToolbarHeight + 40), // Space for AppBar
+              const SizedBox(height: kToolbarHeight + 40),
               Expanded(
                 child: Center(
                   child: Padding(
@@ -66,7 +66,6 @@ class SignInPage extends StatelessWidget {
                             hasOutline: true,
                             onPressed: () {},
                             icon: FontAwesomeIcons.google,
-                            // color: Colors.white,
                             textColor: Colors.black,
                             backgroundColor: Colors.white,
                             text: 'Continue with Google',
@@ -83,14 +82,16 @@ class SignInPage extends StatelessWidget {
                           SizedBox(
                             height: height * 0.05,
                           ),
-                          const BasicInputField(
+                          BasicInputField(
                             hintText: 'Email Address',
+                            controller: emailAdressController,
                           ),
                           SizedBox(
                             height: height * 0.025,
                           ),
-                          const BasicInputField(
+                          BasicInputField(
                             hintText: 'Password',
+                            controller: passwordController,
                           ),
                           SizedBox(
                             height: height * 0.05,
