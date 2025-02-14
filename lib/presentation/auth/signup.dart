@@ -1,4 +1,6 @@
 import 'package:silent_moon/auth/auth_service.dart';
+import 'package:silent_moon/common/widgets/error/error_dialog.dart';
+import 'package:silent_moon/common/widgets/success/success_dialog.dart';
 import 'package:silent_moon/import.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -24,6 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void dipose() {
     emailAdressController.dispose();
     passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -39,9 +42,19 @@ class _SignUpPageState extends State<SignUpPage> {
       print('$email, $password');
       try {
         await authService.signUpWithEmailAndPassword(email, password);
+        showDialog(
+            context: context,
+            builder: (context) => const SuccessDialog(
+                content:
+                    "Your account has been successfully created with silent mood",
+                path: '/home'));
       } catch (e) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+        showDialog(
+            // ignore: use_build_context_synchronously
+            context: context,
+            builder: (context) => ErrorDialog(errorMessage: e.toString()));
+        // ScaffoldMessenger.of(context)
+        //     .showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
       }
     }
 
