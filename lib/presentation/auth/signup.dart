@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:silent_moon/common/widgets/error/error_dialog.dart';
 import 'package:silent_moon/common/widgets/success/success_dialog.dart';
 import 'package:silent_moon/import.dart';
@@ -21,7 +22,6 @@ class _SignUpPageState extends State<SignUpPage> {
     passwordController = TextEditingController();
   }
 
-  @override
   void dipose() {
     emailAdressController.dispose();
     passwordController.dispose();
@@ -37,6 +37,10 @@ class _SignUpPageState extends State<SignUpPage> {
     void signup() async {
       final email = emailAdressController.text;
       final password = passwordController.text;
+      final username = usernameController.text;
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('username', username);
 
       print('$email, $password');
       try {
@@ -46,7 +50,7 @@ class _SignUpPageState extends State<SignUpPage> {
             builder: (context) => const SuccessDialog(
                 content:
                     "Your account has been successfully created with silent mood",
-                path: '/home'));
+                path: '/getStarted'));
       } catch (e) {
         showDialog(
             // ignore: use_build_context_synchronously

@@ -4,4 +4,5 @@ class AppVectors {
 
   static const String silentMoonSvg = "${basePath}silentMoonLogo$format";
   static const String googleIcon = "${basePath}google$format";
+  static const String silentMoonLogoAlt = "${basePath}silentMoonLogoAlt$format";
 }

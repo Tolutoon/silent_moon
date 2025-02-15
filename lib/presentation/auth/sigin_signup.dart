@@ -67,6 +67,9 @@ class SignInSignUpScreen extends StatelessWidget {
                   height: 62,
                 ),
                 BasicAppButton(
+                  
+                  
+                  
                     onPressed: () {
                       context.go('/signup');
                     },

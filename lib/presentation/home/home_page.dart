@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:silent_moon/import.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

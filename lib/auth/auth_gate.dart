@@ -1,5 +1,6 @@
 import 'package:silent_moon/import.dart';
-import 'package:silent_moon/presentation/home/homepage.dart';
+import 'package:silent_moon/presentation/get_started/get_started.dart';
+import 'package:silent_moon/presentation/home/home_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});

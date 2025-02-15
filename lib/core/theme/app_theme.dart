@@ -5,7 +5,7 @@ class AppTheme {
   static final theme = ThemeData(
       primaryColor: AppColors.primary,
       fontFamily: 'HelveticaNeue',
-      scaffoldBackgroundColor: AppColors.backgroundColor,
+      // scaffoldBackgroundColor: AppColors.backgroundColor,
       brightness: Brightness.light,
       inputDecorationTheme: const InputDecorationTheme(
           filled: true,
