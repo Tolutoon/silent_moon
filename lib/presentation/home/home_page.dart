@@ -1,3 +1,5 @@
+import 'package:silent_moon/common/widgets/cards/home/home_card.dart';
+import 'package:silent_moon/common/widgets/cards/topic/topic_card.dart';
 import 'package:silent_moon/import.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,7 +25,7 @@ class HomePage extends StatelessWidget {
             height: 40,
           ),
           Text(
-            'Good Morning, ',
+            'Good Morning, User',
             style: TextStyle(
                 color: AppColors.darkBlue,
                 fontSize: 28,
@@ -35,6 +37,32 @@ class HomePage extends StatelessWidget {
           ),
           const SizedBox(
             height: 30,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                  height: 210,
+                  width: 177,
+                  child: HomeCard(
+                      imagePath: Appimages.basicCourses,
+                      color: Color.fromARGB(255, 142, 151, 253))),
+              const SizedBox(
+                width: 16,
+              ),
+              SizedBox(
+                  height: 210,
+                  width: 177,
+                  child: HomeCard(
+                      imagePath: Appimages.basicCourses,
+                      color: Color.fromARGB(255, 255, 201, 126))),
+              // SizedBox(
+              //   height: 210,
+              //   width: 117,
+              //   child: HomeCard(
+              //       color: Color.fromARGB(255, 255, 219, 157),
+              //       imagePath: Appimages.relaxationMusic),
+              // )
+            ],
           ),
         ]),
       )),

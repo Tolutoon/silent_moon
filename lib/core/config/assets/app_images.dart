@@ -14,5 +14,8 @@ class Appimages {
   static const String personalGrowth = "${basePath}personal_growth$format";
   static const String reduceAnxiety = "${basePath}reduce_anxiety$format";
   static const String reduceStress = "${basePath}reduce_stress$format";
-  static const String improvePerformance = "${basePath}improve_performance$format";
+  static const String improvePerformance =
+      "${basePath}improve_performance$format";
+  static const String relaxationMusic = "${basePath}relaxationMusic$format";
+  static const String basicCourses = "${basePath}basicCourses$format";
 }
