@@ -1,4 +1,4 @@
-import 'package:silent_moon/common/widgets/cards/topic_card/topic_card.dart';
+import 'package:silent_moon/common/widgets/cards/topic/topic_card.dart';
 import 'package:silent_moon/import.dart';
 
 class ChooseModePage extends StatelessWidget {
