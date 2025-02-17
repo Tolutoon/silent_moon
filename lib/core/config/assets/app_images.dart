@@ -18,4 +18,5 @@ class Appimages {
       "${basePath}improve_performance$format";
   static const String relaxationMusic = "${basePath}relaxationMusic$format";
   static const String basicCourses = "${basePath}basicCourses$format";
+  static const String camoOverlay = "${basePath}camoOverlay$format";
 }
